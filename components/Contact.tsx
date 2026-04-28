@@ -8,14 +8,14 @@ export default function Contact() {
       icon: "📱",
       title: "WhatsApp",
       description: "Chat langsung untuk pesanan cepat",
-      action: "wa.me/6281270859575",
+      action: "wa.me/6282283864119",
       color: "from-green-400 to-green-600",
     },
     {
       icon: "📞",
       title: "Telepon",
       description: "Hubungi tim layanan kami",
-      action: "6281270859575",
+      action: "6282283864119",
       color: "from-blue-400 to-blue-600",
     },
     {
@@ -40,12 +40,14 @@ export default function Contact() {
       icon: "🛒",
       color: "from-orange-500 to-orange-600",
       description: "Gratis ongkir untuk order baru",
+      link: "https://shopee.co.id/now-food", // Ganti dengan link toko Anda
     },
     {
       name: "GrabFood",
       icon: "🚗",
       color: "from-green-500 to-green-700",
       description: "Cashback hingga 30%",
+      link: "https://food.grab.com", // Ganti dengan link toko Anda
     },
   ];
 
@@ -179,14 +181,17 @@ export default function Contact() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
             {deliveryPlatforms.map((platform, index) => (
-              <motion.div
+              <motion.a
                 key={index}
+                href={platform.link}
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 + index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05, y: -10 }}
-                className={`p-6 sm:p-7 md:p-8 rounded-xl sm:rounded-2xl bg-gradient-to-br ${platform.color} text-white text-center shadow-xl hover:shadow-2xl transition-all duration-300`}
+                className={`p-6 sm:p-7 md:p-8 rounded-xl sm:rounded-2xl bg-gradient-to-br ${platform.color} text-white text-center shadow-xl hover:shadow-2xl transition-all duration-300 block`}
               >
                 <motion.div
                   animate={{ y: [0, -10, 0] }}
@@ -197,7 +202,7 @@ export default function Contact() {
                 </motion.div>
                 <h4 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">{platform.name}</h4>
                 <p className="text-white/90 text-xs sm:text-sm">{platform.description}</p>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         </motion.div>

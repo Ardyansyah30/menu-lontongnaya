@@ -16,7 +16,7 @@ export default function OrderLinks() {
       name: "GooFood",
       icon: "🛵",
       color: "from-red-400 to-red-600",
-      url: "#",
+      url: "https://gofood.link/a/yVn5B3C",
       description: "Pesan dengan diskon khusus",
       benefit: "Gratis ongkir hari ini",
     },
@@ -24,7 +24,7 @@ export default function OrderLinks() {
       name: "ShopeeFood",
       icon: "🛒",
       color: "from-orange-400 to-orange-600",
-      url: "#",
+      url: "https://shopee.co.id/now-food", // Ganti dengan link toko ShopeeFood Anda
       description: "Kemudahan pembayaran Shopee",
       benefit: "Cashback hingga 50%",
     },
@@ -32,7 +32,7 @@ export default function OrderLinks() {
       name: "GrabFood",
       icon: "🚗",
       color: "from-green-500 to-green-700",
-      url: "#",
+      url: "https://food.grab.com", // Ganti dengan link toko GrabFood Anda
       description: "Gratis ongkir untuk member baru",
       benefit: "Promo spesial GrabFood",
     },
@@ -88,15 +88,15 @@ export default function OrderLinks() {
           <p className="text-xs sm:text-sm uppercase tracking-widest text-blue-600 font-bold mb-3 sm:mb-4">
             CARA MUDAH PESAN
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 sm:mb-6 leading-tight text-gray-900 tracking-tight">
             Pesan Melalui Platform
             <br className="hidden sm:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">
               Pilihan Anda
             </span>
           </h2>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-2">
-            Kemudahan berbelanja dengan berbagai pilihan platform delivery terpercaya
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-500 max-w-3xl mx-auto px-2 font-medium leading-relaxed">
+            Nikmati kemudahan memesan hidangan favorit Anda melalui berbagai platform delivery terkemuka.
           </p>
         </motion.div>
 
@@ -116,30 +116,28 @@ export default function OrderLinks() {
               rel={link.url.startsWith("http") ? "noopener noreferrer" : ""}
               variants={itemVariants}
               whileHover={{
-                y: -15,
-                boxShadow: "0 30px 60px rgba(59, 130, 246, 0.2)",
+                y: -10,
+                boxShadow: "0 15px 30px rgba(0,0,0,0.08)",
               }}
-              className={`relative p-6 sm:p-7 md:p-8 rounded-xl sm:rounded-2xl bg-gradient-to-br ${link.color} text-white shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group cursor-pointer`}
+              className={`relative p-6 sm:p-7 md:p-8 rounded-2xl sm:rounded-3xl bg-white text-gray-900 shadow-md border border-gray-100 hover:border-blue-200 transition-all duration-300 overflow-hidden group cursor-pointer flex flex-col items-center justify-center`}
             >
               {/* Shine Effect */}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0"
                 animate={{ x: ["-100%", "100%"] }}
-                transition={{ duration: 3, repeat: Infinity, delay: index * 0.2 }}
+                transition={{ duration: 2.5, repeat: Infinity, delay: index * 0.2 }}
               />
 
               {/* Content */}
               <div className="relative z-10">
                 <motion.div
-                  animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: index * 0.15 }}
-                  className="text-4xl sm:text-5xl mb-3 sm:mb-4"
+                  className="text-5xl sm:text-6xl mb-4 sm:mb-5"
                 >
                   {link.icon}
                 </motion.div>
 
-                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">{link.name}</h3>
-                <p className="text-white/90 text-xs sm:text-sm mb-3 sm:mb-4 font-medium">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold mb-2 sm:mb-3 text-gray-900 tracking-tight">{link.name}</h3>
+                <p className="text-gray-600 text-xs sm:text-sm mb-3 sm:mb-4 font-medium text-center">
                   {link.description}
                 </p>
 
@@ -148,16 +146,14 @@ export default function OrderLinks() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: index * 0.1 + 0.3 }}
-                  className="inline-block bg-white/20 backdrop-blur-sm px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-bold text-white"
+                  className="inline-block bg-blue-100 text-blue-700 px-3 sm:px-4 py-1 rounded-full text-xs font-bold"
                 >
                   ✨ {link.benefit}
                 </motion.div>
 
                 {/* Arrow */}
                 <motion.div
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="mt-4 sm:mt-6 text-lg"
+                  className="mt-4 sm:mt-6 text-blue-600 text-xl font-bold"
                 >
                   →
                 </motion.div>
@@ -180,16 +176,16 @@ export default function OrderLinks() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-gray-50 to-white border-2 border-gray-100 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 text-center"
+          className="bg-blue-50/50 border border-blue-100 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 text-center"
         >
-          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 px-2">
+          <h3 className="text-xl sm:text-2xl font-extrabold text-blue-800 mb-6 px-2 tracking-tight">
             Mengapa Memilih Kami?
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {[
-              { title: "Kualitas Terjamin", desc: "Bahan premium, higienis, dan lezat" },
-              { title: "Pengiriman Cepat", desc: "Sampai dalam kondisi hangat & segar" },
-              { title: "Harga Kompetitif", desc: "Terbaik untuk kualitas yang diberikan" },
+              { title: "Kualitas Terjamin", desc: "Bahan premium, higienis, dan lezat." },
+              { title: "Pengiriman Cepat", desc: "Pesanan Anda tiba dalam kondisi hangat & segar." },
+              { title: "Harga Kompetitif", desc: "Nilai terbaik untuk kualitas hidangan yang istimewa." },
             ].map((info, i) => (
               <motion.div
                 key={i}
@@ -198,8 +194,8 @@ export default function OrderLinks() {
                 transition={{ delay: 0.5 + i * 0.1 }}
                 viewport={{ once: true }}
               >
-                <h4 className="font-bold text-gray-900 text-sm sm:text-base md:text-lg mb-2">{info.title}</h4>
-                <p className="text-gray-600 text-xs sm:text-sm">{info.desc}</p>
+                <h4 className="font-bold text-blue-800 text-sm sm:text-base md:text-lg mb-2 tracking-tight">{info.title}</h4>
+                <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">{info.desc}</p>
               </motion.div>
             ))}
           </div>
