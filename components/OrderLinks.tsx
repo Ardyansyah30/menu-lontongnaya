@@ -63,17 +63,17 @@ export default function OrderLinks() {
   };
 
   return (
-    <section className="py-32 px-6 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+    <section className="py-16 sm:py-20 md:py-32 px-4 sm:px-6 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
       {/* Premium Background */}
       <motion.div
         animate={{ opacity: [0.3, 0.6, 0.3] }}
         transition={{ duration: 8, repeat: Infinity }}
-        className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-bl from-blue-300/20 to-transparent rounded-full blur-3xl"
+        className="absolute top-10 sm:top-16 md:top-20 right-10 sm:right-16 md:right-20 w-48 sm:w-64 md:w-96 h-48 sm:h-64 md:h-96 bg-gradient-to-bl from-blue-300/20 to-transparent rounded-full blur-3xl"
       />
       <motion.div
         animate={{ opacity: [0.2, 0.5, 0.2] }}
         transition={{ duration: 10, repeat: Infinity }}
-        className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-tr from-blue-300/20 to-transparent rounded-full blur-3xl"
+        className="absolute bottom-10 sm:bottom-16 md:bottom-20 left-10 sm:left-16 md:left-20 w-48 sm:w-64 md:w-96 h-48 sm:h-64 md:h-96 bg-gradient-to-tr from-blue-300/20 to-transparent rounded-full blur-3xl"
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -83,19 +83,19 @@ export default function OrderLinks() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16 md:mb-20 px-2"
         >
-          <p className="text-sm uppercase tracking-widest text-blue-600 font-bold mb-4">
+          <p className="text-xs sm:text-sm uppercase tracking-widest text-blue-600 font-bold mb-3 sm:mb-4">
             CARA MUDAH PESAN
           </p>
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
             Pesan Melalui Platform
-            <br />
+            <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-600">
               Pilihan Anda
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-2">
             Kemudahan berbelanja dengan berbagai pilihan platform delivery terpercaya
           </p>
         </motion.div>
@@ -106,7 +106,7 @@ export default function OrderLinks() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6 mb-12 sm:mb-14 md:mb-16"
         >
           {orderLinks.map((link, index) => (
             <motion.a
@@ -119,7 +119,7 @@ export default function OrderLinks() {
                 y: -15,
                 boxShadow: "0 30px 60px rgba(59, 130, 246, 0.2)",
               }}
-              className={`relative p-8 rounded-2xl bg-gradient-to-br ${link.color} text-white shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group cursor-pointer`}
+              className={`relative p-6 sm:p-7 md:p-8 rounded-xl sm:rounded-2xl bg-gradient-to-br ${link.color} text-white shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group cursor-pointer`}
             >
               {/* Shine Effect */}
               <motion.div
@@ -133,13 +133,13 @@ export default function OrderLinks() {
                 <motion.div
                   animate={{ y: [0, -8, 0] }}
                   transition={{ duration: 2, repeat: Infinity, delay: index * 0.15 }}
-                  className="text-5xl mb-4"
+                  className="text-4xl sm:text-5xl mb-3 sm:mb-4"
                 >
                   {link.icon}
                 </motion.div>
 
-                <h3 className="text-2xl font-bold mb-2">{link.name}</h3>
-                <p className="text-white/90 text-sm mb-4 font-medium">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">{link.name}</h3>
+                <p className="text-white/90 text-xs sm:text-sm mb-3 sm:mb-4 font-medium">
                   {link.description}
                 </p>
 
@@ -148,7 +148,7 @@ export default function OrderLinks() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: index * 0.1 + 0.3 }}
-                  className="inline-block bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-white"
+                  className="inline-block bg-white/20 backdrop-blur-sm px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-bold text-white"
                 >
                   ✨ {link.benefit}
                 </motion.div>
@@ -157,7 +157,7 @@ export default function OrderLinks() {
                 <motion.div
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="mt-6 text-lg"
+                  className="mt-4 sm:mt-6 text-lg"
                 >
                   →
                 </motion.div>
@@ -180,12 +180,12 @@ export default function OrderLinks() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-gray-50 to-white border-2 border-gray-100 rounded-3xl p-12 text-center"
+          className="bg-gradient-to-r from-gray-50 to-white border-2 border-gray-100 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 text-center"
         >
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 px-2">
             Mengapa Memilih Kami?
           </h3>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {[
               { title: "Kualitas Terjamin", desc: "Bahan premium, higienis, dan lezat" },
               { title: "Pengiriman Cepat", desc: "Sampai dalam kondisi hangat & segar" },
@@ -198,8 +198,8 @@ export default function OrderLinks() {
                 transition={{ delay: 0.5 + i * 0.1 }}
                 viewport={{ once: true }}
               >
-                <h4 className="font-bold text-gray-900 mb-2">{info.title}</h4>
-                <p className="text-gray-600 text-sm">{info.desc}</p>
+                <h4 className="font-bold text-gray-900 text-sm sm:text-base md:text-lg mb-2">{info.title}</h4>
+                <p className="text-gray-600 text-xs sm:text-sm">{info.desc}</p>
               </motion.div>
             ))}
           </div>

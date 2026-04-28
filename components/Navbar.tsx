@@ -19,16 +19,16 @@ export default function Navbar() {
       transition={{ duration: 0.5 }}
       className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100"
     >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         <motion.h1
           whileHover={{ scale: 1.05 }}
-          className="font-bold text-2xl bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent cursor-pointer"
+          className="font-bold text-lg sm:text-xl md:text-2xl bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent cursor-pointer whitespace-nowrap"
         >
           🍜 Lontong Naya
         </motion.h1>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex gap-8 text-sm font-medium">
+        <nav className="hidden md:flex gap-6 lg:gap-8 text-xs sm:text-sm md:text-sm font-medium">
           {navItems.map((item, index) => (
             <motion.a
               key={index}
@@ -82,7 +82,7 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-white border-t border-gray-100 overflow-hidden"
           >
-            <div className="px-6 py-4 flex flex-col gap-4">
+            <div className="px-4 sm:px-6 py-3 sm:py-4 flex flex-col gap-3 sm:gap-4">
               {navItems.map((item, index) => (
                 <motion.a
                   key={index}
@@ -91,7 +91,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-gray-700 font-medium hover:text-orange-500 transition-colors"
+                  className="text-sm sm:text-base text-gray-700 font-medium hover:text-orange-500 transition-colors"
                 >
                   {item.label}
                 </motion.a>

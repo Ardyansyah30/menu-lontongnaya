@@ -76,18 +76,18 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-32 px-6 bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white relative overflow-hidden"
+      className="py-16 sm:py-20 md:py-32 px-4 sm:px-6 bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white relative overflow-hidden"
     >
       {/* Premium Background Animations */}
       <motion.div
         animate={{ x: [0, 100, 0], y: [0, 50, 0] }}
         transition={{ duration: 20, repeat: Infinity }}
-        className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-bl from-blue-500/20 to-transparent rounded-full blur-3xl"
+        className="absolute top-10 sm:top-20 right-10 sm:right-20 w-48 sm:w-64 md:w-96 h-48 sm:h-64 md:h-96 bg-gradient-to-bl from-blue-500/20 to-transparent rounded-full blur-3xl"
       />
       <motion.div
         animate={{ x: [0, -100, 0], y: [0, -50, 0] }}
         transition={{ duration: 25, repeat: Infinity }}
-        className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-tr from-blue-500/20 to-transparent rounded-full blur-3xl"
+        className="absolute bottom-10 sm:bottom-20 left-10 sm:left-20 w-48 sm:w-64 md:w-96 h-48 sm:h-64 md:h-96 bg-gradient-to-tr from-blue-500/20 to-transparent rounded-full blur-3xl"
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -97,19 +97,19 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16 md:mb-20"
         >
-          <p className="text-sm uppercase tracking-widest text-blue-400 font-bold mb-4">
+          <p className="text-xs sm:text-sm uppercase tracking-widest text-blue-400 font-bold mb-3 sm:mb-4">
             HUBUNGI KAMI
           </p>
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight px-2">
             Siap Melayani Anda
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600">
               24/7
             </span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto px-4">
             Layanan pelanggan premium kami siap membantu Anda kapan saja
           </p>
         </motion.div>
@@ -120,7 +120,7 @@ export default function Contact() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-8 mb-20"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-12 sm:mb-16 md:mb-20"
         >
           {contactMethods.map((method, index) => (
             <motion.a
@@ -133,7 +133,7 @@ export default function Contact() {
                 y: -15,
                 boxShadow: "0 30px 60px rgba(59, 130, 246, 0.3)",
               }}
-              className={`relative p-10 rounded-2xl bg-gradient-to-br ${method.color} text-white overflow-hidden group cursor-pointer`}
+              className={`relative p-6 sm:p-8 md:p-10 rounded-xl sm:rounded-2xl bg-gradient-to-br ${method.color} text-white overflow-hidden group cursor-pointer`}
             >
               {/* Shine Effect */}
               <motion.div
@@ -145,13 +145,13 @@ export default function Contact() {
               <motion.div
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
-                className="text-5xl mb-6 relative z-10"
+                className="text-4xl sm:text-5xl mb-4 sm:mb-6 relative z-10"
               >
                 {method.icon}
               </motion.div>
 
-              <h3 className="text-2xl font-bold mb-2 relative z-10">{method.title}</h3>
-              <p className="text-white/90 relative z-10">{method.description}</p>
+              <h3 className="text-xl sm:text-2xl font-bold mb-1 sm:mb-2 relative z-10">{method.title}</h3>
+              <p className="text-white/90 text-sm sm:text-base relative z-10">{method.description}</p>
 
               <motion.div
                 initial={{ width: 0 }}
@@ -168,16 +168,16 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
           viewport={{ once: true }}
-          className="mb-20"
+          className="mb-12 sm:mb-16 md:mb-20"
         >
-          <p className="text-center text-sm uppercase tracking-widest text-orange-400 font-bold mb-4">
+          <p className="text-center text-xs sm:text-sm uppercase tracking-widest text-orange-400 font-bold mb-3 sm:mb-4">
             PLATFORM DELIVERY
           </p>
-          <h3 className="text-center text-3xl font-bold mb-12">
+          <h3 className="text-center text-2xl sm:text-3xl font-bold mb-8 sm:mb-12">
             Pesan Melalui Aplikasi Favorit Anda
           </h3>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
             {deliveryPlatforms.map((platform, index) => (
               <motion.div
                 key={index}
@@ -186,17 +186,17 @@ export default function Contact() {
                 transition={{ delay: 0.4 + index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05, y: -10 }}
-                className={`p-8 rounded-2xl bg-gradient-to-br ${platform.color} text-white text-center shadow-xl hover:shadow-2xl transition-all duration-300`}
+                className={`p-6 sm:p-7 md:p-8 rounded-xl sm:rounded-2xl bg-gradient-to-br ${platform.color} text-white text-center shadow-xl hover:shadow-2xl transition-all duration-300`}
               >
                 <motion.div
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
-                  className="text-5xl mb-4"
+                  className="text-4xl sm:text-5xl mb-3 sm:mb-4"
                 >
                   {platform.icon}
                 </motion.div>
-                <h4 className="text-2xl font-bold mb-2">{platform.name}</h4>
-                <p className="text-white/90 text-sm">{platform.description}</p>
+                <h4 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">{platform.name}</h4>
+                <p className="text-white/90 text-xs sm:text-sm">{platform.description}</p>
               </motion.div>
             ))}
           </div>
@@ -208,9 +208,9 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-3xl p-12 backdrop-blur-xl"
+          className="bg-gradient-to-r from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 backdrop-blur-xl"
         >
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             {[
               { label: "📍 Lokasi", value: "Jakarta Timur, Indonesia" },
               { label: "🕐 Jam Buka", value: "10:00 - 21:00 WIB" },
@@ -225,9 +225,9 @@ export default function Contact() {
                 viewport={{ once: true }}
                 className="text-center"
               >
-                <p className="text-2xl mb-2">{info.label.split(" ")[0]}</p>
-                <p className="text-gray-300 text-sm">{info.label.split(" ").slice(1).join(" ")}</p>
-                <p className="text-white font-semibold mt-2">{info.value}</p>
+                <p className="text-2xl sm:text-3xl mb-2">{info.label.split(" ")[0]}</p>
+                <p className="text-gray-300 text-xs sm:text-sm">{info.label.split(" ").slice(1).join(" ")}</p>
+                <p className="text-white font-semibold text-sm sm:text-base mt-2">{info.value}</p>
               </motion.div>
             ))}
           </div>
@@ -239,7 +239,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7 }}
           viewport={{ once: true }}
-          className="text-center mt-16"
+          className="text-center mt-12 sm:mt-14 md:mt-16"
         >
           <motion.a
             href="https://wa.me/6282283864119?text=Halo%20Lontong%20Naya%2C%20saya%20ingin%20memesan"
@@ -247,7 +247,7 @@ export default function Contact() {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-block bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold py-6 px-12 rounded-full text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
+            className="inline-block bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold py-4 sm:py-5 md:py-6 px-6 sm:px-8 md:px-12 rounded-full text-sm sm:text-base md:text-lg shadow-xl hover:shadow-2xl transition-all duration-300"
           >
             🚀 Pesan Sekarang via WhatsApp
           </motion.a>

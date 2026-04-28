@@ -34,17 +34,17 @@ export default function Home() {
       {/* Background Parallax */}
       <motion.div
         style={{ y: slowLayer }}
-        className="fixed top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-orange-300/20 blur-[120px] -z-10"
+        className="fixed top-[-10%] left-[-10%] w-48 sm:w-72 md:w-96 lg:w-[500px] h-48 sm:h-72 md:h-96 lg:h-[500px] rounded-full bg-orange-300/20 blur-[80px] sm:blur-[100px] md:blur-[120px] -z-10"
       />
 
       <motion.div
         style={{ y: midLayer }}
-        className="fixed top-[35%] right-[-10%] w-[650px] h-[650px] rounded-full bg-yellow-300/20 blur-[140px] -z-10"
+        className="fixed top-[35%] right-[-10%] w-56 sm:80 md:w-[400px] lg:w-[650px] h-56 sm:h-80 md:h-[400px] lg:h-[650px] rounded-full bg-yellow-300/20 blur-[100px] sm:blur-[120px] md:blur-[140px] -z-10"
       />
 
       <motion.div
         style={{ y: topLayer }}
-        className="fixed bottom-[-15%] left-[15%] w-[700px] h-[700px] rounded-full bg-red-300/10 blur-[140px] -z-10"
+        className="fixed bottom-[-15%] left-[15%] w-56 sm:w-80 md:w-96 lg:w-[700px] h-56 sm:h-80 md:h-96 lg:h-[700px] rounded-full bg-red-300/10 blur-[100px] sm:blur-[120px] md:blur-[140px] -z-10"
       />
 
       {/* Running Text */}
@@ -57,19 +57,19 @@ export default function Home() {
             duration: 24,
             ease: "linear",
           }}
-          className="flex whitespace-nowrap py-3 text-sm md:text-base font-semibold tracking-[0.28em] uppercase text-orange-600"
+          className="flex whitespace-nowrap py-2 sm:py-3 text-xs sm:text-sm md:text-base font-semibold tracking-[0.15em] sm:tracking-[0.25em] md:tracking-[0.28em] uppercase text-orange-600"
         >
-          <span className="mx-8">Fresh Ingredients</span>
-          <span className="mx-8">Traditional Taste</span>
-          <span className="mx-8">Premium Quality</span>
-          <span className="mx-8">Fast Delivery</span>
-          <span className="mx-8">Trusted UMKM Food</span>
+          <span className="mx-4 sm:mx-6 md:mx-8">Fresh Ingredients</span>
+          <span className="mx-4 sm:mx-6 md:mx-8">Traditional Taste</span>
+          <span className="mx-4 sm:mx-6 md:mx-8">Premium Quality</span>
+          <span className="mx-4 sm:mx-6 md:mx-8">Fast Delivery</span>
+          <span className="mx-4 sm:mx-6 md:mx-8">Trusted UMKM Food</span>
 
-          <span className="mx-8">Fresh Ingredients</span>
-          <span className="mx-8">Traditional Taste</span>
-          <span className="mx-8">Premium Quality</span>
-          <span className="mx-8">Fast Delivery</span>
-          <span className="mx-8">Trusted UMKM Food</span>
+          <span className="mx-4 sm:mx-6 md:mx-8">Fresh Ingredients</span>
+          <span className="mx-4 sm:mx-6 md:mx-8">Traditional Taste</span>
+          <span className="mx-4 sm:mx-6 md:mx-8">Premium Quality</span>
+          <span className="mx-4 sm:mx-6 md:mx-8">Fast Delivery</span>
+          <span className="mx-4 sm:mx-6 md:mx-8">Trusted UMKM Food</span>
         </motion.div>
       </div>
 

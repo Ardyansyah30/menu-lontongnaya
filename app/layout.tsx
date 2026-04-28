@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Lontong Naya",
-  description: "Sarapan Pagi Lontong Naya",
+  title: "Lontong Naya - Sarapan Pagi Premium",
+  description: "Sarapan Pagi Lontong Naya - Rasa terbaik dengan harga bersahabat",
+  viewport: "width=device-width, initial-scale=1.0, maximum-scale=5.0",
 };
 
 export default function RootLayout({

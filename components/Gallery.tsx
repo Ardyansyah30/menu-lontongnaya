@@ -37,10 +37,10 @@ export default function Gallery() {
   };
 
   return (
-    <section className="py-32 px-6 bg-white relative overflow-hidden">
+    <section className="py-16 sm:py-20 md:py-24 lg:py-32 px-4 sm:px-6 bg-white relative overflow-hidden">
       {/* Premium Background */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-100/30 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-blue-100/30 to-transparent rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-48 sm:w-64 md:w-96 h-48 sm:h-64 md:h-96 bg-gradient-to-bl from-blue-100/30 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-48 sm:w-64 md:w-96 h-48 sm:h-64 md:h-96 bg-gradient-to-tr from-blue-100/30 to-transparent rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -48,18 +48,18 @@ export default function Gallery() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-10 sm:mb-14 md:mb-20"
         >
-          <p className="text-sm uppercase tracking-widest text-orange-600 font-bold mb-4">
+          <p className="text-xs sm:text-sm uppercase tracking-widest text-orange-600 font-bold mb-2 sm:mb-4">
             GALERI KAMI
           </p>
-          <h2 className="text-5xl font-bold text-gray-900 mb-4">
-            Showcase Kualitas <br />
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 px-2">
+            Showcase Kualitas <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-600">
               Premium Kami
             </span>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-4">
             Setiap hidangan adalah karya seni yang dirancang dengan sempurna dan cinta
           </p>
         </motion.div>
@@ -69,14 +69,14 @@ export default function Gallery() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8"
         >
           {images.map((image) => (
             <motion.div
               key={image.id}
               variants={itemVariants}
               whileHover={{ y: -15, scale: 1.02 }}
-              className="group relative h-96 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500"
+              className="group relative h-48 sm:h-64 md:h-96 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
             >
               <motion.img
                 src={image.img}
@@ -88,11 +88,11 @@ export default function Gallery() {
               <motion.div
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}
-                className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-8"
+                className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end p-4 sm:p-6 md:p-8"
               >
                 <div className="text-white">
-                  <h3 className="text-2xl font-bold mb-2">{image.title}</h3>
-                  <p className="text-gray-300 text-sm">Dibuat dengan presisi dan cinta</p>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-1 sm:mb-2">{image.title}</h3>
+                  <p className="text-gray-300 text-xs sm:text-sm">Dibuat dengan presisi dan cinta</p>
                 </div>
               </motion.div>
             </motion.div>
