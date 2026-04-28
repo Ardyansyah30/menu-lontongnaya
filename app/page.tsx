@@ -1,65 +1,116 @@
-import Image from "next/image";
+"use client";
+
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Menu from "@/components/Menu";
+import Gallery from "@/components/Gallery";
+import OrderLinks from "@/components/OrderLinks";
+import Premium from "@/components/Premium";
+import Promo from "@/components/Promo";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 export default function Home() {
+  const pageRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: pageRef,
+    offset: ["start start", "end end"],
+  });
+
+  /* Parallax Layers */
+  const topLayer = useTransform(scrollYProgress, [0, 1], [0, -180]);
+  const midLayer = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const slowLayer = useTransform(scrollYProgress, [0, 1], [0, -80]);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main
+      ref={pageRef}
+      className="relative min-h-screen bg-[#faf7f2] text-gray-900 overflow-hidden"
+    >
+      {/* Background Parallax */}
+      <motion.div
+        style={{ y: slowLayer }}
+        className="fixed top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-orange-300/20 blur-[120px] -z-10"
+      />
+
+      <motion.div
+        style={{ y: midLayer }}
+        className="fixed top-[35%] right-[-10%] w-[650px] h-[650px] rounded-full bg-yellow-300/20 blur-[140px] -z-10"
+      />
+
+      <motion.div
+        style={{ y: topLayer }}
+        className="fixed bottom-[-15%] left-[15%] w-[700px] h-[700px] rounded-full bg-red-300/10 blur-[140px] -z-10"
+      />
+
+      {/* Running Text */}
+      <div className="w-full overflow-hidden border-b border-orange-100 bg-white/80 backdrop-blur-xl">
+        <motion.div
+          initial={{ x: "0%" }}
+          animate={{ x: "-50%" }}
+          transition={{
+            repeat: Infinity,
+            duration: 24,
+            ease: "linear",
+          }}
+          className="flex whitespace-nowrap py-3 text-sm md:text-base font-semibold tracking-[0.28em] uppercase text-orange-600"
+        >
+          <span className="mx-8">Fresh Ingredients</span>
+          <span className="mx-8">Traditional Taste</span>
+          <span className="mx-8">Premium Quality</span>
+          <span className="mx-8">Fast Delivery</span>
+          <span className="mx-8">Trusted UMKM Food</span>
+
+          <span className="mx-8">Fresh Ingredients</span>
+          <span className="mx-8">Traditional Taste</span>
+          <span className="mx-8">Premium Quality</span>
+          <span className="mx-8">Fast Delivery</span>
+          <span className="mx-8">Trusted UMKM Food</span>
+        </motion.div>
+      </div>
+
+      {/* Navbar */}
+      <Navbar />
+
+      {/* Sections */}
+      <motion.section style={{ y: topLayer }}>
+        <Hero />
+      </motion.section>
+
+      <motion.section style={{ y: midLayer }} className="py-10">
+        <About />
+      </motion.section>
+
+      <motion.section style={{ y: slowLayer }} className="py-10">
+        <Menu />
+      </motion.section>
+
+      <motion.section style={{ y: midLayer }} className="py-10">
+        <Gallery />
+      </motion.section>
+
+      <motion.section style={{ y: topLayer }} className="py-10">
+        <Premium />
+      </motion.section>
+
+      <motion.section style={{ y: midLayer }} className="py-10">
+        <OrderLinks />
+      </motion.section>
+
+      <motion.section style={{ y: slowLayer }} className="py-10">
+        <Promo />
+      </motion.section>
+
+      <motion.section style={{ y: topLayer }} className="pt-10 pb-20">
+        <Contact />
+      </motion.section>
+
+      {/* Footer */}
+      <Footer />
+    </main>
   );
 }
