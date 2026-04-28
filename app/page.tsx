@@ -2,16 +2,16 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Menu from "@/components/Menu";
-import Gallery from "@/components/Gallery";
-import OrderLinks from "@/components/OrderLinks";
-import Premium from "@/components/Premium";
-import Promo from "@/components/Promo";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
+import About from "../components/About";
+import Menu from "../components/Menu";
+import Gallery from "../components/Gallery";
+import OrderLinks from "../components/OrderLinks";
+import Premium from "../components/Premium";
+import Promo from "../components/Promo";
+import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 
 export default function Home() {
   const pageRef = useRef<HTMLDivElement>(null);
