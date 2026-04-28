@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence, useAnimationControls } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
 import MenuModal, { MenuItem } from "./MenuModal"; // Pastikan MenuItem diimpor dari MenuModal
 
 interface CartItem extends MenuItem {
@@ -13,7 +14,7 @@ const menus: MenuItem[] = [
     name: "Lontong Gulai Campur",
     price: "Rp13.000",
     description: "Lontong dengan kuah gulai campur dengan tambahan mie kuninggoreng",
-    img: "/lontong gulai campur + mie.jpeg",
+    img: "/lontong+gulai+campur+mie.jpeg",
     category: "Lontong",
     details: "Dibuat fresh setiap hari dengan bahan-bahan pilihan terbaik",
   },
@@ -139,6 +140,7 @@ const categories = [
 
 export default function Menu() {
   const [selectedMenu, setSelectedMenu] = useState<MenuItem | null>(null);
+  const [clickPosition, setClickPosition] = useState<{ x: number; y: number } | undefined>(undefined);
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const controls = useAnimationControls(); // Inisialisasi controls untuk animasi
   const [cart, setCart] = useState<CartItem[]>([]);
@@ -292,17 +294,22 @@ export default function Menu() {
               key={item.name}
               variants={itemVariants}
               whileHover={{ y: -10 }}
-              onClick={() => setSelectedMenu(item)}
+              onClick={(e) => {
+                setClickPosition({ x: e.clientX, y: e.clientY });
+                setSelectedMenu(item);
+              }}
               className="group cursor-pointer"
+              id={`menu-${item.name}`}
             >
               <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-300">
                 {/* Image Container */}
-                <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
-                  <motion.img
+                <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden w-full">
+                  <Image
                     src={item.img}
                     alt={item.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    layoutId={`menu-img-${item.name}`}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   {/* Category Badge */}
                   <motion.div
@@ -340,6 +347,7 @@ export default function Menu() {
                       whileTap={{ scale: 0.95 }}
                       onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
                         e.stopPropagation();
+                        setClickPosition({ x: e.clientX, y: e.clientY });
                         setSelectedMenu(item);
                       }}
                       className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-2 sm:p-3 rounded-full hover:shadow-lg transition-all duration-300 text-lg sm:text-xl"
@@ -447,6 +455,7 @@ export default function Menu() {
         isOpen={selectedMenu !== null}
         item={selectedMenu}
         onAddToCart={addToCart}
+        clickPosition={clickPosition}
         onClose={() => setSelectedMenu(null)}
       />
     </section>

@@ -85,9 +85,9 @@ export default function Home() {
         <About />
       </motion.section>
 
-      <motion.section style={{ y: slowLayer }} className="py-10">
+      <section className="py-10">
         <Menu />
-      </motion.section>
+      </section>
 
       <motion.section style={{ y: midLayer }} className="py-10">
         <Gallery />

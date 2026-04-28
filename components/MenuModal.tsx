@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export interface MenuItem {
   name: string;
@@ -17,9 +18,10 @@ interface MenuModalProps {
   item: MenuItem | null;
   onAddToCart: (item: MenuItem, quantity: number) => void;
   onClose: () => void;
+  clickPosition?: { x: number; y: number };
 }
 
-export default function MenuModal({ isOpen, item, onAddToCart, onClose }: MenuModalProps) {
+export default function MenuModal({ isOpen, item, onAddToCart, onClose, clickPosition }: MenuModalProps) {
   const [quantity, setQuantity] = useState(1);
 
   // Reset quantity ke 1 setiap kali item berganti atau modal dibuka
@@ -44,21 +46,22 @@ export default function MenuModal({ isOpen, item, onAddToCart, onClose }: MenuMo
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.15 }}
             onClick={onClose}
             className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[60]"
           />
 
           {/* Modal */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ type: "spring", damping: 20, stiffness: 300 }}
-            className="fixed inset-0 z-[70] flex items-center justify-center p-4 cursor-pointer overflow-y-auto"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            transition={{ type: "spring", damping: 25, stiffness: 500 }}
+            className="fixed inset-0 z-[70] flex items-center justify-center p-4 cursor-pointer"
             onClick={onClose}
           >
             <div 
-              className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl max-w-md w-full overflow-hidden cursor-default relative"
+              className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl max-w-sm w-full overflow-hidden cursor-default relative"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
@@ -72,15 +75,19 @@ export default function MenuModal({ isOpen, item, onAddToCart, onClose }: MenuMo
               </motion.button>
 
               {/* Image */}
-              <motion.img
-                src={item.img}
-                alt={item.name}
-                className="w-full h-48 sm:h-64 md:h-80 object-cover"
-                layoutId={`menu-img-${item.name}`}
-              />
+              <div className="relative w-full h-40 sm:h-52 md:h-60">
+                <Image
+                  src={item.img}
+                  alt={item.name}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 448px"
+                  className="object-cover"
+                />
+              </div>
 
               {/* Content */}
-              <div className="p-4 sm:p-6 md:p-8">
+              <div className="p-4 sm:p-5">
                 <motion.h2
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -103,7 +110,7 @@ export default function MenuModal({ isOpen, item, onAddToCart, onClose }: MenuMo
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base"
+                  className="text-gray-600 mb-3 sm:mb-4 leading-tight text-xs sm:text-sm"
                 >
                   {item.description}
                 </motion.p>
@@ -113,7 +120,7 @@ export default function MenuModal({ isOpen, item, onAddToCart, onClose }: MenuMo
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.25 }}
-                    className="bg-orange-50 p-3 sm:p-4 rounded-lg sm:rounded-2xl mb-4 sm:mb-6 text-xs sm:text-sm text-gray-700"
+                    className="bg-orange-50 p-2 sm:p-3 rounded-lg sm:rounded-xl mb-3 sm:mb-4 text-[10px] sm:text-xs text-gray-700"
                   >
                     <p className="font-semibold mb-1 sm:mb-2">Informasi Tambahan:</p>
                     <p>{item.details}</p>
@@ -125,13 +132,13 @@ export default function MenuModal({ isOpen, item, onAddToCart, onClose }: MenuMo
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6"
+                  className="flex items-center justify-between gap-3 mb-4"
                 >
                   <span className="font-semibold text-sm sm:text-base">Jumlah:</span>
-                  <div className="flex items-center gap-2 sm:gap-3 border-2 border-gray-200 rounded-full px-3 sm:px-4 py-1.5 sm:py-2">
+                  <div className="flex items-center gap-2 sm:gap-3 border-2 border-gray-200 rounded-full px-2 sm:px-3 py-1">
                     <button
                       onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                      className="text-base sm:text-lg font-bold text-gray-600 hover:text-gray-900"
+                      className="text-sm sm:text-base font-bold text-gray-600 hover:text-gray-900"
                     >
                       −
                     </button>
@@ -140,7 +147,7 @@ export default function MenuModal({ isOpen, item, onAddToCart, onClose }: MenuMo
                     </span>
                     <button
                       onClick={() => setQuantity(quantity + 1)}
-                      className="text-base sm:text-lg font-bold text-gray-600 hover:text-gray-900"
+                      className="text-sm sm:text-base font-bold text-gray-600 hover:text-gray-900"
                     >
                       +
                     </button>
