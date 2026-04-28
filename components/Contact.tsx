@@ -8,14 +8,14 @@ export default function Contact() {
       icon: "📱",
       title: "WhatsApp",
       description: "Chat langsung untuk pesanan cepat",
-      action: "wa.me/6282283864119",
+      action: "wa.me/6281270859575",
       color: "from-green-400 to-green-600",
     },
     {
       icon: "📞",
       title: "Telepon",
       description: "Hubungi tim layanan kami",
-      action: "6282283864119",
+      action: "628127089575",
       color: "from-blue-400 to-blue-600",
     },
     {
