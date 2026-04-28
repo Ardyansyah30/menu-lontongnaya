@@ -28,7 +28,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative pt-20 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24 px-4 sm:px-6 text-center bg-gradient-to-b from-[#f7f7f7] to-white overflow-hidden">
+    <section className="relative pt-24 sm:pt-32 md:pt-40 pb-20 sm:pb-24 md:pb-32 px-4 sm:px-6 text-center bg-[#fafaf9] overflow-hidden">
       {/* Animated Background Elements */}
       <motion.div
         animate={{ y: [-20, 20, -20] }}
@@ -53,20 +53,20 @@ export default function Hero() {
       >
         <motion.h1
           variants={itemVariants}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight leading-tight"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-extrabold tracking-tighter leading-[0.9] text-gray-900"
         >
-          Nikmatnya Makanan
+          Lontong Naya
           <br />
-          <span className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 bg-clip-text text-transparent">
-            Premium UMKM Lokal
+          <span className="text-blue-600">
+            Sarapan Pagi Dengan Cita Rasa Minang
           </span>
         </motion.h1>
 
         <motion.p
           variants={itemVariants}
-          className="mt-4 sm:mt-6 text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl font-medium px-2"
+          className="mt-6 sm:mt-8 text-gray-500 text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-medium tracking-tight"
         >
-          Rasa terbaik. Harga bersahabat. Dibuat dengan cinta.
+          Menghadirkan kelezatan autentik Sumatera Barat ke meja makan Anda setiap pagi. Dibuat dengan resep warisan dan bahan pilihan.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -78,7 +78,7 @@ export default function Hero() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             href="#menu"
-            className="px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base rounded-full font-bold text-white bg-gradient-to-r from-blue-500 to-blue-600 hover:shadow-xl transition-all duration-300"
+            className="px-8 py-4 text-base rounded-xl font-bold text-white bg-blue-600 shadow-xl shadow-blue-600/20 hover:bg-blue-700 transition-all duration-300"
           >
             Lihat Menu 🍽️
           </motion.a>
@@ -86,47 +86,10 @@ export default function Hero() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             href="#contact"
-            className="px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base rounded-full font-bold text-blue-600 border-2 border-blue-500 hover:bg-blue-50 transition-all duration-300"
+            className="px-8 py-4 text-base rounded-xl font-bold text-blue-900 border-2 border-blue-600 hover:bg-blue-50 transition-all duration-300"
           >
             Pesan Sekarang 📱
           </motion.a>
-        </motion.div>
-
-        {/* Hero Image */}
-        <motion.div
-          variants={itemVariants}
-          className="mt-10 sm:mt-14 md:mt-16"
-        >
-          <motion.img
-            animate={{ y: [0, -20, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            src="/food-hero.png"
-            alt="Premium UMKM Food"
-            className="mx-auto w-full max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-3xl drop-shadow-2xl"
-          />
-        </motion.div>
-
-        {/* Stats */}
-        <motion.div
-          variants={itemVariants}
-          className="mt-10 sm:mt-14 md:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-4xl mx-auto px-2"
-        >
-          {[
-            { number: "1000+", label: "Pelanggan Puas" },
-            { number: "6+", label: "Menu Pilihan" },
-            { number: "24/7", label: "Layanan Siap" },
-          ].map((stat, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ scale: 1.05 }}
-              className="p-3 sm:p-4 rounded-xl bg-white shadow-lg"
-            >
-              <p className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
-                {stat.number}
-              </p>
-              <p className="text-xs sm:text-sm md:text-base text-gray-600 mt-1">{stat.label}</p>
-            </motion.div>
-          ))}
         </motion.div>
       </motion.div>
     </section>

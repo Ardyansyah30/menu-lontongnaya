@@ -247,7 +247,7 @@ export default function Menu() {
           viewport={{ once: true }}
           className="text-center mb-10 sm:mb-12 md:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-3 sm:mb-4 text-blue-950 tracking-tight">
             Daftar Menu Kami
           </h2>
           <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-600 px-2">
@@ -271,7 +271,7 @@ export default function Menu() {
               whileTap={{ scale: 0.95 }}
               className={`px-4 sm:px-6 py-2 rounded-full text-sm sm:text-base font-semibold transition-all duration-300 ${
                 activeCategory === category
-                  ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg"
+                  ? "bg-blue-600 text-white shadow-lg"
                   : "bg-white text-gray-700 border-2 border-gray-200 hover:border-blue-500"
               }`}
             >
@@ -301,7 +301,7 @@ export default function Menu() {
               className="group cursor-pointer"
               id={`menu-${item.name}`}
             >
-              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-300">
+              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-white shadow-md border border-gray-100 hover:border-blue-200 transition-all duration-300">
                 {/* Image Container */}
                 <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden w-full">
                   <Image
@@ -323,7 +323,7 @@ export default function Menu() {
 
                 {/* Content */}
                 <div className="p-4 sm:p-5 md:p-6">
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 group-hover:text-orange-500 transition-colors line-clamp-2">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 group-hover:text-blue-600 transition-colors line-clamp-2 tracking-tight text-gray-900">
                     {item.name}
                   </h3>
 
@@ -377,7 +377,7 @@ export default function Menu() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 sm:gap-3">
                     <motion.div
-                      className="bg-gradient-to-br from-orange-500 to-red-600 text-white w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center font-bold text-sm sm:text-base shadow-md"
+                      className="bg-blue-600 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black text-base shadow-lg"
                       variants={shakeVariants}
                       animate={controls}
                     >
@@ -391,7 +391,7 @@ export default function Menu() {
                 </div>
                 <div className="text-right">
                   <p className="text-xs text-gray-400 uppercase tracking-wider font-bold">Total Est.</p>
-                  <p className="text-xl sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600">
+                  <p className="text-2xl font-black text-blue-600">
                     Rp{totalPrice.toLocaleString("id-ID")}
                   </p>
                 </div>
@@ -416,7 +416,7 @@ export default function Menu() {
                         >
                           −
                         </button>
-                        <span className="text-xs font-black text-orange-600 min-w-[12px] text-center">{item.quantity}</span>
+                        <span className="text-xs font-black text-blue-600 min-w-[12px] text-center">{item.quantity}</span>
                         <button 
                           onClick={() => updateCartQuantity(item.name, 1)}
                           className="text-gray-400 hover:text-green-600 font-bold text-xs sm:text-sm transition-colors"
@@ -439,7 +439,7 @@ export default function Menu() {
                 </button>
                 <button
                   onClick={sendToWhatsApp}
-                  className="flex-1 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-4 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-black shadow-[0_10px_20px_rgba(16,185,129,0.3)] hover:shadow-[0_15px_30px_rgba(16,185,129,0.4)] transition-all flex items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm md:text-base uppercase tracking-tight"
+                  className="flex-1 bg-blue-600 text-white px-8 py-4 rounded-2xl font-black shadow-xl shadow-blue-600/20 hover:bg-blue-700 transition-all flex items-center justify-center gap-3 text-sm uppercase tracking-widest"
                 >
                   <span>Konfirmasi</span>
                   <span className="hidden md:inline">🚀</span>

@@ -77,7 +77,7 @@ export default function About() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-xs sm:text-sm uppercase tracking-[0.3em] text-orange-500 mb-3 sm:mb-4 font-bold"
+              className="text-xs sm:text-sm uppercase tracking-[0.3em] text-blue-500 mb-3 sm:mb-4 font-bold"
             >
               ✨ Tentang Kami
             </motion.p>
@@ -90,7 +90,7 @@ export default function About() {
             >
               Lontong Naya
               <br />
-              <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
                 Menyediakan Sarapan Pagi Untuk Keluarga Anda
               </span>
             </motion.h2>

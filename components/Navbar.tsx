@@ -8,8 +8,6 @@ export default function Navbar() {
 
   const navItems = [
     { label: "Menu", href: "#menu" },
-    { label: "Promo", href: "#promo" },
-    { label: "Contact", href: "#contact" },
   ];
 
   return (
@@ -22,7 +20,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         <motion.h1
           whileHover={{ scale: 1.05 }}
-          className="font-bold text-lg sm:text-xl md:text-2xl bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent cursor-pointer whitespace-nowrap"
+          className="font-black text-xl sm:text-2xl md:text-3xl tracking-tighter text-blue-900 cursor-pointer whitespace-nowrap"
         >
           🍜 Lontong Naya
         </motion.h1>
@@ -37,7 +35,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               whileHover={{
-                color: "#3b82f6",
+                color: "#2563eb",
                 scale: 1.05,
               }}
               className="relative text-gray-700 transition-colors duration-300"
@@ -46,7 +44,7 @@ export default function Navbar() {
               <motion.span
                 whileHover={{ scaleX: 1 }}
                 initial={{ scaleX: 0 }}
-                className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-500 origin-left"
+                className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-500 origin-left"
               />
             </motion.a>
           ))}
