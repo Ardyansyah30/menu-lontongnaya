@@ -8,7 +8,7 @@ export default function OrderLinks() {
       name: "WhatsApp",
       icon: "📱",
       color: "from-green-400 to-green-600",
-      url: "https://wa.me/6282283864119?text=Halo%20Lontong%20Naya%2C%20saya%20ingin%20memesan",
+      url: "https://wa.me/6281270859575?text=Halo%20Lontong%20Naya%2C%20saya%20ingin%20memesan",
       description: "Chat langsung dengan tim kami",
       benefit: "Respon cepat 24/7",
     },

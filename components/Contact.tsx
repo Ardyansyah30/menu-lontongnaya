@@ -15,7 +15,7 @@ export default function Contact() {
       icon: "📞",
       title: "Telepon",
       description: "Hubungi tim layanan kami",
-      action: "628127089575",
+      action: "6281270859575",
       color: "from-blue-400 to-blue-600",
     },
     {
