@@ -219,7 +219,7 @@ export default function Contact() {
             {[
               { label: "📍 Lokasi", value: "Jakarta Timur, Indonesia" },
               { label: "🕐 Jam Buka", value: "10:00 - 21:00 WIB" },
-              { label: "📱 WhatsApp", value: "+62 822 8386 4119" },
+              { label: "📱 WhatsApp", value: "+62 812 7085 9575" },
               { label: "✉️ Email", value: "info@lontonnaya.com" },
             ].map((info, index) => (
               <motion.div
@@ -247,7 +247,7 @@ export default function Contact() {
           className="text-center mt-12 sm:mt-14 md:mt-16"
         >
           <motion.a
-            href="https://wa.me/6282283864119?text=Halo%20Lontong%20Naya%2C%20saya%20ingin%20memesan"
+            href="https://wa.me/6281270859575?text=Halo%20Lontong%20Naya%2C%20saya%20ingin%20memesan"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}

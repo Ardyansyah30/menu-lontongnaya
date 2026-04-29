@@ -184,7 +184,7 @@ export default function Menu() {
 
     message += `\nTotal Pesanan: Rp${totalPrice.toLocaleString("id-ID")}`;
     
-    const whatsappLink = `https://wa.me/6282283864119?text=${encodeURIComponent(message)}`;
+    const whatsappLink = `https://wa.me/6281270859575?text=${encodeURIComponent(message)}`;
     window.open(whatsappLink, "_blank");
   };
 
